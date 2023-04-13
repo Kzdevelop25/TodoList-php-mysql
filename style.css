@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #e8e8e8;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    padding: 1.5rem;
+    padding-top: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h3 {
+    letter-spacing: 10px;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.header .nav {
+    position: absolute;
+    z-index: 2;
+    right: 5%;
+}
+
+.header .nav-btn {
+    margin-left: auto;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.header .notif {
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 12px;
+    height: 12px;
+    background-color: salmon;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.wrapper {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+input#task {
+    padding: .5rem;
+    width: 450px;
+    border: none;
+    box-shadow: 0 0 0 .5px rgba(10, 135, 14, 1);
+    transition: .3s cubic-bezier(0.19, 1, 0.22, 1);
+    font-family: 'Open Sans', sans-serif;
+}
+
+input#task:focus {
+    box-shadow: 0 0 0 1px rgba(10, 135, 14, 1);
+    outline: none;
+    caret-color: rgba(10, 135, 14, 1);
+}
+
+.btn-add {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.icon-add {
+    font-size: 1.5rem;
+    padding: .5rem;
+    color: rgba(10, 135, 14, 1);
+}
+
+.flex {
+    display: flex;
+    width: 73%;
+    justify-content: flex-start;
+}
+
+.listContainer {
+    /* background-color: slategray; */
+    width: 100%;
+    padding: 1rem;
+    border-radius: .3rem;
+    height: 60vh;
+    overflow-y: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+::-webkit-progress-bar {
+    display: none;
+    width: 0;
+}
+
+.listTask {
+    background-color: #e8e8e8;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 20px -15px black;
+    border-radius: .5rem;
+    padding: .5rem;
+    transition: .3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.task {
+    color: black;
+    font-size: 1rem;
+    padding: 0 1rem;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.action .btn-delete,
+.action .btn-edit {
+    background-color: transparent;
+    border: none;
+    transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+    cursor: pointer;
+}
+
+
+.icon-delete {
+    font-size: 1.5rem;
+    color: rgba(134, 7, 7, 0.7);
+}
+
+.icon-edit {
+    font-size: 1.25rem;
+    color: #236bce;
+}
+
+.edit-col {
+    position: relative;
+}
+
+
+.action .btn-succeed {
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 0 .5px black;
+    transition: .3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action .btn-succeed:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+/* Side Component */
+
+.sideContainer {
+    opacity: 0;
+    /* display: none; */
+    background-color: #333;
+    width: 30%;
+    z-index: 1;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    transform: translateX(100%);
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all .75s ease-in-out;
+}
+
+
+.show {
+    transform: translateX(0%);
+    display: block;
+    opacity: 1;
+}
+
+.side {
+    padding: 2rem;
+    padding-top: 10em;
+    padding-bottom: 1rem;
+}
+
+#navSide .btn {
+    background-color: salmon;
+    margin-top: 1rem;
+    border-radius: .3rem;
+    padding: .5rem .3rem;
+    cursor: pointer;
+    border: none;
+}
+
+.sideHeader {
+    color: black;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    /* width: 100%; */
+    padding: 2rem;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.sideHeader .text {
+    flex-grow: 1;
+}
+
+.sideHeader .text h2 {
+    font-size: 1.5rem;
+}
+
+.sideHeader .btn-close {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.sideList {
+    background-color: #67606074;
+    box-shadow: 0 5px 20px -15px black;
+    margin-bottom: 1rem;
+}
+
+/* Side Component */
+
+.footer {
+    width: 100%;
+    font-size: .8rem;
+    bottom: 0;
+    /* padding: 1rem; */
+    padding-top: 1rem;
+    background-color: #e8e8e8;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    .listTask {
+        width: inherit;
+    }
+
+    .header .nav-btn {
+        font-size: 1.5rem;
+    }
+
+    .header .nav {
+        margin-top: .3rem;
+        padding-left: 1rem;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 1051px) {
+
+    .flex {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1120px) {
+    .sideContainer {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .sideContainer {
+        width: 70%;
+    }
+
+    /* .sideHeader .text h2 {
+        font-size: 1.5rem;
+    } */
+}
+
+@media screen and (width <=400px) {
+    .sideContainer {
+        width: 90%;
+    }
+}
+
+@media screen and (width <=300px) {
+    .sideHeader .text h3 {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add styles for responsiveness */
+@media screen and (max-width: 600px) {
+
+    .header h3 {
+        font-size: 1.5rem;
+    }
+
+    input#task {
+        width: 90%;
+    }
+
+    .icon-add {
+        font-size: 1.2rem;
+    }
+
+    .listTask {
+        max-width: 100%;
+    }
+
+    .task {
+        font-size: 0.9rem;
+    }
+
+    .action .btn-succeed {
+        font-size: 1rem;
+        width: 20px;
+        height: 20px;
+    }
+
+    .action .icon-delete {
+        font-size: 1.2rem;
+    }
+}
+
+/* Add styles for larger screens */
+@media screen and (min-width: 1200px) {
+
+    .icon-add {
+        font-size: 1.8rem;
+    }
+
+    .task {
+        font-size: 1.1rem;
+    }
+
+    .action .btn-succeed {
+        font-size: 1.3rem;
+        width: 30px;
+        height: 30px;
+    }
+
+    .action .icon-delete {
+        font-size: 1.7rem;
+    }
+}
+
+/* Add styles for even larger screens */
+@media screen and (min-width: 1400px) {
+
+    .icon-add {
+        font-size: 2rem;
+    }
+
+    .task {
+        font-size: 1.2rem;
+    }
+
+    .action .btn-succeed {
+        font-size: 1.5rem;
+        width: 35px;
+        height: 35px;
+    }
+
+    .action .icon-delete {
+        font-size: 2rem;
+    }
+}
